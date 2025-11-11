@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Catalyst - AI-Native R&D for Specialty Chemicals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>Project Catalyst</span>
+                </div>
+                <nav class="nav-tabs">
+                    <button class="nav-tab active" data-view="dashboard">
+                        <i class="fas fa-chart-line"></i>
+                        Dashboard
+                    </button>
+                    <button class="nav-tab" data-view="lab-copilot">
+                        <i class="fas fa-flask"></i>
+                        Lab Copilot
+                    </button>
+                    <button class="nav-tab" data-view="business-copilot">
+                        <i class="fas fa-briefcase"></i>
+                        Business Copilot
+                    </button>
+                    <button class="nav-tab" data-view="propose-project">
+                        <i class="fas fa-lightbulb"></i>
+                        Propose New Project
+                    </button>
+                </nav>
+                <div class="user-info">
+                    <div class="user-toggle">
+                        <button id="user-role-toggle" class="toggle-btn">
+                            <span id="current-role">Manager View</span>
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div id="dashboard" class="view active">
+                <div class="dashboard-header">
+                    <h1>AI-Powered R&D Dashboard</h1>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3>₹70 Lakhs</h3>
+                            <p>Annual Savings (YTD)</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>12</h3>
+                            <p>Active Projects</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>92%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>₹2.1 Lakhs</h3>
+                            <p>Q4 Investment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-section">
+                    <h2>AI-Generated Project Pipeline</h2>
+                    <div class="pipeline-board">
+                        <div class="pipeline-column">
+                            <h3>Ideas <span class="count">4</span></h3>
+                            <div class="project-cards" id="ideas-column">
+                                <!-- Project cards will be populated by JS -->
+                            </div>
+                        </div>
+                        <div class="pipeline-column">
+                            <h3>Approved <span class="count">3</span></h3>
+                            <div class="project-cards" id="approved-column">
+                                <!-- Project cards will be populated by JS -->
+                            </div>
+                        </div>
+                        <div class="pipeline-column">
+                            <h3>In Progress <span class="count">4</span></h3>
+                            <div class="project-cards" id="in-progress-column">
+                                <!-- Project cards will be populated by JS -->
+                            </div>
+                        </div>
+                        <div class="pipeline-column">
+                            <h3>Completed <span class="count">6</span></h3>
+                            <div class="project-cards" id="completed-column">
+                                <!-- Project cards will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Features Section -->
+                <div class="ai-features-section">
+                    <h2>AI-Powered Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>Lab Copilot</h3>
+                            <p>AI generates detailed synthesis procedures with safety protocols, hover tooltips, and step-by-step instructions for any chemical reaction.</p>
+                            <div class="feature-stats">
+                                <span class="stat">Generated 15+ procedures</span>
+                                <span class="stat">92% accuracy rate</span>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Business Copilot</h3>
+                            <p>Context-aware business analysis that knows your equipment, suppliers, and market. Generates real ROI calculations and feasibility reports.</p>
+                            <div class="feature-stats">
+                                <span class="stat">₹70L savings identified</span>
+                                <span class="stat">15+ business cases</span>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Project Proposer</h3>
+                            <p>AI analyzes your capabilities and market to suggest new product opportunities. Get personalized project recommendations.</p>
+                            <div class="feature-stats">
+                                <span class="stat">4 new projects suggested</span>
+                                <span class="stat">₹45L potential revenue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Copilot View -->
+            <div id="lab-copilot" class="view">
+                <div class="cursor-layout">
+                    <!-- Left Side: Protocol Editor -->
+                    <div class="workspace-area">
+                        <div class="workspace-header">
+                            <div class="project-info">
+                                <i class="fas fa-flask"></i>
+                                <span class="protocol-title">Nitrotoluene_Synthesis_Procedure.md</span>
+                            </div>
+                            <div class="workspace-actions">
+                                <button class="action-btn">
+                                    <i class="fas fa-save"></i>
+                                    Save Protocol
+                                </button>
+                                <button class="action-btn" id="regenerate-btn">
+                                    <i class="fas fa-sync-alt"></i>
+                                    Regenerate
+                                </button>
+                                <button class="action-btn" id="log-results-btn" disabled>
+                                    <i class="fas fa-clipboard-list"></i>
+                                    Log Results
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Protocol Editor with Comments -->
+                        <div class="protocol-editor-area" id="protocol-editor-area">
+                            <!-- Content will be generated by JavaScript with hover comments -->
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Chat Interface -->
+                    <div class="chat-panel">
+                        <div class="chat-header">
+                            <h3>Lab Copilot Assistant</h3>
+                            <div class="chat-status">
+                                <span class="status-indicator online"></span>
+                                AI Researcher Active
+                            </div>
+                        </div>
+                        
+                        <div class="chat-container">
+                            <div class="chat-messages" id="lab-chat">
+                                <!-- Chat messages will be populated by JS -->
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" id="lab-input" placeholder="Ask me to generate procedures, add safety notes, or clarify any step...">
+                                <button id="lab-send"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Copilot View -->
+            <div id="business-copilot" class="view">
+                <div class="cursor-layout">
+                    <!-- Left Side: Business Analysis Workspace -->
+                    <div class="workspace-area">
+                        <div class="workspace-header">
+                            <div class="project-selector">
+                                <select id="business-project-selector">
+                                    <option value="nitrotoluene_synthesis">Nitrotoluene Synthesis Project</option>
+                                    <option value="benzyl_acetate_optimization">Benzyl Acetate Yield Enhancement</option>
+                                    <option value="toluene_recovery">Toluene Recovery Enhancement</option>
+                                    <option value="new_product_development">New Product Development</option>
+                                </select>
+                            </div>
+                            <div class="workspace-actions">
+                                <button class="action-btn">
+                                    <i class="fas fa-save"></i>
+                                    Save Analysis
+                                </button>
+                                <button class="action-btn" id="regenerate-business-btn">
+                                    <i class="fas fa-sync-alt"></i>
+                                    Regenerate
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Business Analysis Area -->
+                        <div class="business-editor-area" id="business-editor-area">
+                            <!-- Content will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Business AI Chat -->
+                    <div class="chat-panel">
+                        <div class="chat-header">
+                            <h3>Business Copilot Assistant</h3>
+                            <div class="chat-status">
+                                <span class="status-indicator online"></span>
+                                Business Intelligence Active
+                            </div>
+                        </div>
+                        
+                        <div class="chat-container">
+                            <div class="chat-messages" id="business-chat">
+                                <!-- Chat messages will be populated by JS -->
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" id="business-input" placeholder="Ask about project complexity, equipment needs, cost impact, or business feasibility...">
+                                <button id="business-send"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Propose New Project View -->
+            <div id="propose-project" class="view">
+                <div class="cursor-layout">
+                    <!-- Left Side: Project Proposal Workspace -->
+                    <div class="workspace-area">
+                        <div class="workspace-header">
+                            <div class="project-info">
+                                <i class="fas fa-lightbulb"></i>
+                                <span class="protocol-title">New_Project_Proposal.md</span>
+                            </div>
+                            <div class="workspace-actions">
+                                <button class="action-btn">
+                                    <i class="fas fa-save"></i>
+                                    Save Proposal
+                                </button>
+                                <button class="action-btn" id="generate-proposal-btn">
+                                    <i class="fas fa-magic"></i>
+                                    Generate Proposal
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Proposal Area -->
+                        <div class="proposal-editor-area" id="proposal-editor-area">
+                            <!-- Content will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: AI Project Advisor Chat -->
+                    <div class="chat-panel">
+                        <div class="chat-header">
+                            <h3>AI Project Advisor</h3>
+                            <div class="chat-status">
+                                <span class="status-indicator online"></span>
+                                Project Intelligence Active
+                            </div>
+                        </div>
+                        
+                        <div class="chat-container">
+                            <div class="chat-messages" id="proposal-chat">
+                                <!-- Chat messages will be populated by JS -->
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" id="proposal-input" placeholder="Ask about project feasibility, market opportunities, or technical requirements...">
+                                <button id="proposal-send"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="lab-copilot.js"></script>
+    <script src="business-copilot.js"></script>
+    <script src="proposal-copilot.js"></script>
+</body>
+</html>
